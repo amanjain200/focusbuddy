@@ -65,6 +65,13 @@ const SidePanel = () => {
     console.log('inside handleStartnewSession');
     chrome.storage.local.remove(['tabSwitchHistory', 'tabChangeCount', 'totalActiveTime', 'allUrlsList', 'tabsList']);
     chrome.storage.local.set({ sessionStartTime: Date.now() });
+    setTabChangeCount(0);
+    setTotalActiveTime(0);
+    setAllDomains({});
+    setTabSwitchHistory([]);
+    setAiResponse('');
+    setUniqueSitesCount(0);
+    setSessionStartTime(Date.now());
   };
 
   const getTabSwitchHistory = () => {

@@ -52,12 +52,12 @@ const manifest = withSidePanel({
     type: 'module',
   },
   action: {
-    default_icon: 'icon-34.png',
+    default_icon: 'focus64.png',
   },
   chrome_url_overrides: {
   },
   icons: {
-    128: 'icon-128.png',
+    128: 'focus64.png',
   },
   content_scripts: [
     {
