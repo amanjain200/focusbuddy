@@ -15,7 +15,12 @@ const isFirefox = process.env.__FIREFOX__ === 'true';
 function withSidePanel(manifest) {
   // Firefox does not support sidePanel
   if (isFirefox) {
-    return manifest;
+    return deepmerge(manifest, {
+      sidebar_action: {
+        default_title: 'My Sidebar',
+        default_panel: 'side-panel/index.html',
+      },
+    });
   }
   return deepmerge(manifest, {
     side_panel: {

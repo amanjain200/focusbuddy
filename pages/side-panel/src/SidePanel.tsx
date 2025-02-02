@@ -170,7 +170,7 @@ const SidePanel = () => {
   const handleAiInsights = async (temp : any) => {
       setLoading(true);
       try {
-        const response: { data: { message: string } } = await axios.post('http://localhost:3000/gorq', temp);
+        const response: { data: { message: string } } = await axios.post('http://extension-gpt-call.azurewebsites.net/gorq', temp);
         console.log(response);
         const responseData = response.data;
         setAiResponse(responseData.message);

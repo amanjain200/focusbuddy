@@ -541,6 +541,27 @@ const updatePrevTimeStamp = () => {
   })
 }
 
+const setPrevTimeStampNow = () => {
+  chrome.storage.local.get(['tabsList'], (result) => {
+    const tabsList = result.tabsList || {};
+    const prevtabId = chrome.storage.local.get(['prevTabId']);
+    const tab = tabsList['prevTabId'] || {};
+    const domain = tab['domain'] || "";
+    chrome.storage.local.get(['allUrlsList'], (res) => {
+      const allUrls = res.allUrlsList || {};
+      let thisUrl = allUrls[domain] || {};
+      let prevTimeStamp = thisUrl.prevTimeStamp || Date.now();
+      let totalActiveTime = thisUrl.totalActiveTime || 0;
+      thisUrl['prevTimeStamp'] = Date.now();
+      console.log('prevTimeStamp of the idle tab set to' + Date.now())
+      allUrls[domain] = thisUrl;
+      chrome.storage.local.set({'allUrlsList' : allUrls});
+      console.log("inside update prev time stamp call from idle state")
+      console.log('total active time for ' + domain + ' is ' + thisUrl['totalActiveTime']);
+    })
+  })
+}
+
 
 
 
@@ -597,6 +618,7 @@ chrome.idle.onStateChanged.addListener(
     }
     if(state === 'active') {
       chrome.storage.local.set({prevtime: Date.now()});
+      setPrevTimeStampNow();
       startActiveTimeUpdater(120000)
     }
     console.log("###################################################")
