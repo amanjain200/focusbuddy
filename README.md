@@ -98,3 +98,13 @@ Then, depending on the target browser:
 > In Firefox, you load add-ons in temporary mode. That means they'll disappear after each browser close. You have to load the add-on on every browser launch.
 
 ### We used the boilerplate code from https://github.com/Jonghakseo/chrome-extension-boilerplate-react-vite
+
+
+# Screenshots
+![Demo Screenshot 1](screenshots\scr1.png)
+![Demo Screenshot 2](screenshots\scr2.png)
+![Demo Screenshot 3](screenshots\scr3.png)
+![Demo Screenshot 4](screenshots\scr4.png)
+![Demo Screenshot 5](screenshots\scr5.png)
+![Demo Screenshot 6](screenshots\scr6.png)
+![Demo Screenshot 7](screenshots\scr7.png)
